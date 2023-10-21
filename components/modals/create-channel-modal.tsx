@@ -74,6 +74,12 @@ export default function CreateChannelModal() {
 
   const isLoading = form.formState.isSubmitting;
 
+  /**
+   * The `onSubmit` function sends a POST request to the `/api/channels` endpoint with the provided form
+   * values, resets the form, refreshes the router, and closes the current component.
+   * @param values - The `values` parameter is the data that will be sent in the POST request to the
+   * `/api/channels` endpoint. It is inferred from the `formSchema` using the `z.infer` function.
+   */
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       const url = qs.stringifyUrl({

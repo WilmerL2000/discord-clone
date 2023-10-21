@@ -38,6 +38,10 @@ export default function InviteModal() {
     }, 1000);
   };
 
+  /**
+   * The function `onNew` sends a PATCH request to update the invite code for a server and then opens a
+   * modal with the updated server data.
+   */
   const onNew = async () => {
     try {
       setIsLoading(true);

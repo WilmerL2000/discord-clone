@@ -53,6 +53,12 @@ export default function MembersModal() {
   const isModalOpen = isOpen && type === 'members';
   const { server } = data as { server: ServerWithMembersWithProfiles };
 
+  /**
+   * The `onKick` function is an asynchronous function that sends a DELETE request to the server to kick
+   * a member, and then refreshes the router and opens the 'members' page with the updated server data.
+   * @param {string} memberId - The `memberId` parameter is a string that represents the ID of the member
+   * that is being kicked.
+   */
   const onKick = async (memberId: string) => {
     try {
       setLoadingId(memberId);
@@ -74,6 +80,13 @@ export default function MembersModal() {
     }
   };
 
+  /**
+   * The `onRoleChange` function is an asynchronous function that updates the role of a member and then
+   * refreshes the router and opens the 'members' page with the updated server data.
+   * @param {string} memberId - A string representing the ID of the member whose role is being changed.
+   * @param {MemberRole} role - The `role` parameter is of type `MemberRole`, which is likely an enum or
+   * a string representing the role of a member in a server.
+   */
   const onRoleChange = async (memberId: string, role: MemberRole) => {
     try {
       setLoadingId(memberId);

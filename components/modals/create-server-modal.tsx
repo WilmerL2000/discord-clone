@@ -52,6 +52,13 @@ export default function CreateServerModal() {
 
   const isLoading = form.formState.isSubmitting;
 
+  /**
+   * The function `onSubmit` is an asynchronous function that sends a POST request to the '/api/servers'
+   * endpoint with the `values` parameter, and then resets a form, refreshes the router, and closes a
+   * modal if successful.
+   * @param values - The `values` parameter is an object that represents the form data that will be
+   * submitted. It is inferred from the `formSchema` using the `z.infer` function.
+   */
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.post('/api/servers', values);

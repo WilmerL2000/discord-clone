@@ -53,7 +53,6 @@ export default function EditServerModal() {
   });
 
   useEffect(() => {
-    console.log(server);
     if (server) {
       form.setValue('name', server.name);
       form.setValue('imageUrl', server.imageUrl);
@@ -62,6 +61,12 @@ export default function EditServerModal() {
 
   const isLoading = form.formState.isSubmitting;
 
+  /**
+   * The `onSubmit` function is an asynchronous function that sends a PATCH request to update a server's
+   * information, resets a form, refreshes the router, and closes a modal.
+   * @param values - The `values` parameter is the data that will be sent to the server for updating the
+   * server's information. It is inferred from the `formSchema` using the `z.infer` function.
+   */
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.patch(`/api/servers/${server?.id}`, values);
