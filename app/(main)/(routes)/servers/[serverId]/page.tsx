@@ -10,12 +10,39 @@ type Props = {
   };
 };
 
-export default async function ServerPage({}: Props) {
+export default async function ServerIdPage({ params }: Props) {
   const profile = await currentProfile();
 
   if (!profile) {
     return redirectToSignIn();
   }
 
-  return <div>ServerPage</div>;
+  const server = await db.server.findUnique({
+    where: {
+      id: params.serverId,
+      members: {
+        some: {
+          profileId: profile.id,
+        },
+      },
+    },
+    include: {
+      channels: {
+        where: {
+          name: 'general',
+        },
+        orderBy: {
+          createdAt: 'asc',
+        },
+      },
+    },
+  });
+
+  const initialChannel = server?.channels[0];
+
+  if (initialChannel?.name !== 'general') {
+    return null;
+  }
+
+  return redirect(`/servers/${params.serverId}/channels/${initialChannel?.id}`);
 }
