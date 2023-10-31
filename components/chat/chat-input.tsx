@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { useModal } from '@/hooks/use-modal-store';
+import EmojiPicker from '@/components/emoji-picker';
 
 interface ChatInputProps {
   apiUrl: string;
@@ -41,6 +42,12 @@ export default function ChatInput({
 
   const isLoading = form.formState.isSubmitting;
 
+  /**
+   * The `onSubmit` function sends a POST request to an API endpoint with form values, resets the form,
+   * and refreshes the router.
+   * @param values - The `values` parameter is the data that will be sent in the POST request to the
+   * `apiUrl`. It should be an object that matches the schema defined by the `formSchema`.
+   */
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       const url = qs.stringifyUrl({
@@ -86,9 +93,11 @@ export default function ChatInput({
                     {...field}
                   />
                   <div className="absolute top-7 right-8">
-                    {/* <EmojiPicker
-                      onChange={(emoji: string) => field.onChange(`${field.value} ${emoji}`)}
-                    /> */}
+                    <EmojiPicker
+                      onChange={(emoji: string) =>
+                        field.onChange(`${field.value} ${emoji}`)
+                      }
+                    />
                   </div>
                 </div>
               </FormControl>
