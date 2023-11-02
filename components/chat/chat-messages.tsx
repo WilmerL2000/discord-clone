@@ -6,9 +6,11 @@ import { Member, Message, Profile } from '@prisma/client';
 import { Loader2, ServerCrash } from 'lucide-react';
 
 import { useChatQuery } from '@/hooks/use-chat-query';
+import { useChatSocket } from '@/hooks/use-chat-socket';
 
 import ChatWelcome from './chat-welcome';
 import ChatItem from './chat-item';
+import { useChatScroll } from '@/hooks/use-chat-scroll';
 
 const DATE_FORMAT = 'd MMM yyyy, HH:mm';
 
@@ -55,6 +57,14 @@ export default function ChatMessages({
       paramKey,
       paramValue,
     });
+  useChatSocket({ queryKey, addKey, updateKey });
+  useChatScroll({
+    chatRef,
+    bottomRef,
+    loadMore: fetchNextPage,
+    shouldLoadMore: !isFetchingNextPage && !!hasNextPage,
+    count: data?.pages?.[0]?.items?.length ?? 0,
+  });
 
   if (status === 'loading') {
     return (
