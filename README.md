@@ -494,7 +494,9 @@ serverId: String;
 > Body
 
 ```javascript
-role: Enum,
+{
+  role: Enum;
+}
 ```
 
 ### Direct Messages
