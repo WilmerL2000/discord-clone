@@ -318,7 +318,7 @@ _Follow the instructions below_
  PATCH /api/servers/{serverId}
 ```
 
-> Paremeter
+> Parameter
 
 ```javascript
 serverId: String;
@@ -341,7 +341,7 @@ serverId: String;
  DELETE /api/servers/{serverId}
 ```
 
-> Paremeter
+> Parameter
 
 ```javascript
 serverId: String;
@@ -355,7 +355,7 @@ serverId: String;
  PATCH /api/servers/{serverId}/leave
 ```
 
-> Paremeter
+> Parameter
 
 ```javascript
 serverId: String;
@@ -369,7 +369,7 @@ serverId: String;
  PATCH /api/servers/{serverId}/invite-code
 ```
 
-> Paremeter
+> Parameter
 
 ```javascript
 serverId: String;
@@ -385,7 +385,7 @@ serverId: String;
  POST /api/channels
 ```
 
-> Query Paremeter
+> Query Parameter
 
 ```javascript
 serverId: String;
@@ -408,13 +408,13 @@ serverId: String;
  DELETE /api/channels/{channelId}
 ```
 
-> Paremeter
+> Parameter
 
 ```javascript
 channelId: String;
 ```
 
-> Query Paremeter
+> Query Parameter
 
 ```javascript
 serverId: String;
@@ -428,13 +428,13 @@ serverId: String;
  PATCH /api/channels/{channelId}
 ```
 
-> Paremeters
+> Parameters
 
 ```javascript
 channelId: String;
 ```
 
-> Query Paremeter
+> Query Parameter
 
 ```javascript
 serverId: String;
@@ -459,13 +459,13 @@ serverId: String;
  DELETE /api/members/{memberId}
 ```
 
-> Paremeter
+> Parameter
 
 ```javascript
 memberId: String;
 ```
 
-> Query Paremeter
+> Query Parameter
 
 ```javascript
 serverId: String;
@@ -479,13 +479,13 @@ serverId: String;
  PATCH /api/members/{memberId}
 ```
 
-> Paremeters
+> Parameters
 
 ```javascript
 memberId: String;
 ```
 
-> Query Paremeter
+> Query Parameter
 
 ```javascript
 serverId: String;
@@ -509,7 +509,7 @@ serverId: String;
  GET /api/direct-messages
 ```
 
-> Query Paremeters
+> Query Parameters
 
 ```javascript
 cursor: String;
@@ -524,7 +524,7 @@ conversationId: String;
  POST /api/socket/direct-messages
 ```
 
-> Query Paremeter
+> Query Parameter
 
 ```javascript
 conversationId: String;
@@ -547,7 +547,7 @@ conversationId: String;
  PATCH /api/socket/direct-messages/{directMessageId}
 ```
 
-> Query Paremeter
+> Query Parameter
 
 ```javascript
 conversationId: String;
@@ -575,7 +575,7 @@ directMessageId: String;
  DELETE /api/socket/direct-messages/{directMessageId}
 ```
 
-> Query Paremeter
+> Query Parameter
 
 ```javascript
 conversationId: String;
@@ -597,7 +597,7 @@ directMessageId: String;
  GET /api/messages
 ```
 
-> Query Paremeters
+> Query Parameters
 
 ```javascript
 cursor: String;
@@ -612,7 +612,7 @@ channelId: String;
  POST /api/socket/messages
 ```
 
-> Query Paremeter
+> Query Parameter
 
 ```javascript
 channelId: String;
@@ -636,7 +636,7 @@ serverId: String;
  PATCH /api/socket/messages/{messageId}
 ```
 
-> Query Paremeter
+> Query Parameter
 
 ```javascript
 channelId: String;
@@ -665,7 +665,7 @@ messageId: String;
  DELETE /api/socket/messages/{messageId}
 ```
 
-> Query Paremeter
+> Query Parameter
 
 ```javascript
 channelId: String;
@@ -688,7 +688,7 @@ messageId: String;
  GET /api/livekit
 ```
 
-> Query Paremeter
+> Query Parameter
 
 ```javascript
 room: String;
